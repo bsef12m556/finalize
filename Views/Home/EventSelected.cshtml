@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "EventSelected";
+}
+
+
+@using final.Models;
+<head>
+    <title>
+
+    </title>
+    @Scripts.Render("~/bundles/jquery")
+
+    <script src="~/Content/lib/jquery-1.10.1.min.js"></script>
+    <script src="~/Content/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+    <link href="~/Content/source/helpers/jquery.fancybox-buttons.css" rel="stylesheet" />
+    <script src="~/Content/source/jquery.fancybox.pack.js"></script>
+    <script src="~/Content/source/helpers/jquery.fancybox-buttons.js"></script>
+    <script src="~/Content/source/jquery.fancybox.js"></script>
+    <script src="~/Content/source/helpers/jquery.fancybox-media.js"></script>
+    <link href="~/Content/source/helpers/jquery.fancybox-thumbs.css" rel="stylesheet" />
+   
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+            $('.fancybox').fancybox();
+        });
+
+    </script>
+
+</head>
+
+<body class="event container">
+
+    <div style="padding-top:20px ;">
+        <table cellpadding="20" cellspacing="20" class="table">
+            <thead>
+                <tr class="text-center ">
+                    <td>
+                        <h2><label class="pull-center"> Up COMMING EVENTX </label></h2>
+                    </td>
+
+                </tr>
+            </thead>
+
+           <tbody class="thumbnail">
+               
+                    @foreach (Event u in Model)
+                    {
+                    <tr>
+                        <td width="1000 style=" padding-left:50px" class="pull_left" >
+                            <form action="/home">
+
+                                <input name="nid" value="@u.Id" type="text" style="visibility:hidden" />
+                                <input name="nid" value="@u.Cid" type="text" style="visibility:hidden" />
+                                <input name="nid" value="@u.Nid" type="text" style="visibility:hidden" />
+                                <h5 style="color:#0094ff"> NGO NAME: @u.Nname</h5>
+                                <h5 style="color:#c49696">DESCRIPTION</h5>
+                                <p style="color:#134219">@u.Description</p>
+                                <h5 style="color:#c49696">CAMPAINS DATE:@u.Datte</h5>
+                                <div class="form-group">
+                                    <h6>
+                                        <br />
+                                        <label style="color: #857d7d" for="going">Going:@u.Going</label>
+                                    </h6>
+                                </div>
+                            </form>
+                           
+                        </td>
+                        
+                            @for (int i = 0; i < 2; i++)
+                               {
+                                 string s = u.Id + "_" + i.ToString() + ".jpg";
+                                 <td class="pull_right" style="padding-top:50px" width="150" height="120">
+                                     <a class="fancybox" href="~/Files/@s" style="width :150px ;height:120px"> <img src="~/Files/@s " /></a>
+                                 </td>
+                               }
+                        
+                    </tr>
+                    }
+
+
+
+                </tbody>
+        </table>
+
+
+    </div>
+
+</body>
+

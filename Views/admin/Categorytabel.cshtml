@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Categorytabel";
+}
+@{
+    Layout = "~/Views/Shared/View1.cshtml";
+}
+
+@using final.Models;
+<body style="background-color:#ffffff ; color:black">
+    <h2 >Category tabel</h2>
+    <div>
+        <div style=" padding-top:50px">
+            <table class="tabel tabel-bordered tabel-striped" border="1">
+                <thead style="color:#0094ff">
+                    <tr>
+                        <td style="width:100px">
+                            ID
+                        </td>
+                        <td style="width:100px">
+                            NAME
+                        </td>
+                        <td style="width:100px">
+
+                            Edit
+                        </td>
+                        <td style="width:100px">
+                            DELETE
+                        </td>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Category c in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => c.Id)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(m => c.Category1)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "EditCategory", new { c.Id })
+                            </td>
+                            <td>
+                                @Html.ActionLink("Delete", "DelCategory", new { c.Id })
+                            </td>
+                        </tr>
+
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</body>

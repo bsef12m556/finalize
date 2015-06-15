@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "transectiontabel";
+}
+@{
+    Layout = "~/Views/Shared/View1.cshtml";
+}
+
+@using final.Models;
+<body style="background-color:#ffffff ; color:black" >
+
+    <h2>Transection Tabel</h2>
+    <div>
+        <div style="padding-top:50px">
+            <table class="tabel tabel-bordered tabel-striped" border="1">
+                <thead style="padding-top:50px; color:#0026ff">
+                    <tr>
+                        <td style="width:100px">
+                            ID
+                        </td>
+                        <td style="width:100px">
+                            User 
+                        </td>
+
+                        <td style="width:100px">
+                            Ngo 
+                        </td>
+
+                        <td style="width:100px">
+                            Ammount
+                        </td>
+                        <td style="width:100px">
+                            Credit Card
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Fund c in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => c.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.user.name)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(m => c.Ngo_id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.Ammount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.Credit_card)
+                            </td>
+
+                        </tr>
+
+                    }
+
+                </tbody>
+            </table>
+        </div>
+
+
+
+    </div>
+
+</body>
+     

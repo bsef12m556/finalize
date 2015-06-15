@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "getfunds";
+}
+@{
+    Layout = null;
+}
+
+
+@using final.Models;
+
+<body class="signin container">
+    <div id="desc" class="des pull-center locate" style="width:700px ;">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>
+                        <h2>RECIEVED DONAIONS</h2>
+                    </td>
+                </tr>
+                
+            </thead>
+            <tbody style="font-family:Narkisim; color:#0094ff" >
+               
+                @foreach(Fund f in Model)
+                {
+                    <tr>
+                    
+                    <td>
+                        <h4>GIVER Name: @f.user.name</h4>
+                        <h4>CARD# : @f.Credit_card</h4>
+                        <h4>AMMOUNT :@f.Ammount</h4>
+                        <hr />
+                    </td>
+                </tr>
+                    
+                }
+                
+                
+                
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+  
+</body>

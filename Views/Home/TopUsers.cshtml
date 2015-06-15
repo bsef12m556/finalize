@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "TopUsers";
+}
+@using final.Models;
+<body class="funds container" style="color: gold; ">
+
+
+    <div style="padding-top:100px;">
+    </div>
+
+
+
+    <div>
+        <table cellpadding="20" cellspacing="20" class="table table-striped">
+            <thead>
+                <tr class="text-center ">
+                    <td>
+                        <h2><label class="pull-center"> Top Givers </label></h2>
+                    </td>
+
+                </tr>
+            </thead>
+
+            <tbody class="thumbnail" style="color:gold; font-size:20px">
+
+                @foreach (user u in Model)
+                {
+                    <tr style="padding-top: 50px ;padding-left: 50px; padding-top: 50px">
+                        <td width="500" height="350" style="padding-left: 50px; padding-top: 50px">
+                            <div>
+                                <img src="~/Files/@u.FileName" width="300" height="250" />
+                            </div>
+                        </td>
+
+                        <td width="550" height="350">
+                            
+                            <input name="Id" value="@u.Id" type="text" style="visibility:hidden" />
+                            <h4 style="color:#0094ff">NAME:@u.name</h4>
+                            <h4 style="color:#c49696">DESCRIPTION</h4>
+                            <p>@u.Description</p>
+
+                            <div class="form-group">
+                                <h3>
+                                    <br />
+                                    <label style="color: #857d7d" for="GIven">Donation</label>
+                                    @u.Password
+                                </h3>
+
+                            </div>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+
+</body>
+
+

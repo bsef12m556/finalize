@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "profile";
+}
+
+
+<body class="fundsbackground container">
+
+    <div class="pull-center" style="width:1000px; padding-top: 100px;height:750px">
+        <div class="pull-left" style="padding-top:50px;">
+
+            <img src="~/Files/@Model.FileName" width="500" height="450"/>
+        </div>
+        <div class="pull-right" style="padding-left:50px; width:400px">
+            <form action="/user/updateprofile" class="form-group">
+                <div>
+                    <h4 style="color:#0094ff">
+                        <input type="text" style="visibility: hidden" value="@Model.Id" name="Id" />
+                        <br />
+                        NAME
+                        <br />
+                        <input type="text"  value="@Model.name" name="name" class="form-control" />
+                    </h4>
+                    <h4 style="color: #b66d13">
+                        <input type="text" style="visibility:hidden" value="@Model.type" name="type" required />
+                        <br />
+                        DESCRIPTION<br />
+                        <input type="text" value="@Model.Description" name="Description" class="form-control" required/>
+                    </h4>
+                    <h4 style="color: #c13636">
+                        <input type="text" style="visibility:hidden" value="@Model.Email" name="Email" />
+                        <br />
+                        PASSWORD<br />
+                        <input type="password" value="@Model.Password" name="Password" class="form-control" required />
+                    </h4> 
+                    <input type="text" style="visibility: hidden" value="@Model.FileName" name="FileName" />
+                    <input type="text" style="visibility:hidden" value="@Model.Block" name="Block" />
+
+                    
+                    <input type="submit" class="text-center form-control" value="Update" />
+                </div>
+            </form>
+            <form action="/user/needy">
+                <div style="padding-top: 20px; ">
+
+                    <input type="submit" class="btn btn-primary btn-lg  text-center" value="Add Person" />
+
+                </div>
+                <div class="form-group" >
+                    <hr />
+                    <a href="/user/givendonation/">LIST OF GIVEN DONATIONS</a>
+                    <hr />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <hr style="color:wheat" />
+        <h4 class="text-center" style="color:#c13636"><a href="/Home/Logout">LogOut</a></h4>
+        <hr style="color:wheat" />
+    </footer>
+</body>
+

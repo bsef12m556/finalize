@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "location";
+}
+@using final.Models;
+
+<body class="loc container">
+    <div class="locate loca pull-left" style=" width:300px; height:400px ">
+        <div style="position: relative; padding-top: 20px; ">
+
+                <table>
+                    <tr>
+                        <td width="350">
+                            <h4 style="color:#86430a"> COUNTRY </h4>
+                            <h5>
+                                <select name="Country" id="Country" class="form-control" required>
+
+                                    @foreach (Person p in Model)
+                                    {
+                                        <option value="@p.Country">@p.Country</option>
+                                    }
+
+                                </select>
+                            </h5>
+                        </td>
+                    </tr>
+                    <tr><td><div id="City"></div></td></tr> 
+                    <tr>
+                        <td>
+                            <h2 id="sel"><input type="submit" value="Search" class="btn btn-primary btn-lg btn-block"></h2>
+                        </td>
+                    </tr>
+                </table>
+
+        </div>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $('#sel').click(function () {
+            var value = $('#Country').val();
+            $('#City').load('/Home/countryDetails?Country=' + value);
+            $('#sel').hide()
+
+        });
+    </script>
+
+</body>

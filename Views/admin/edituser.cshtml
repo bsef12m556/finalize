@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "edituser";
+}
+
+@{
+    Layout = "~/Views/Shared/View1.cshtml";
+}
+@model final.Models.user
+<!DOCTYPE html>
+<body class="container">
+    <div id="page-wrapper" style="padding-left:300px">
+
+        <div style="font-family:Narkisim">
+            <h2>editneedy</h2>
+            <pre>
+                 @using (Html.BeginForm("uedit", "admin", FormMethod.Post))
+                {
+    
+                     @Html.LabelFor(m=>m.name)
+            <br />
+                     @Html.EditorFor(m => m.name)
+            <br />
+
+                     
+                     
+                     @Html.LabelFor(m=>m.Description)
+            <br />
+                     @Html.EditorFor(m => m.Description)
+            <br />
+
+                       
+                     @Html.LabelFor(m=>m.Block)
+            <br />
+                     @Html.EditorFor(m => m.Block)
+            <br />
+
+
+
+                     @Html.HiddenFor(m => m.Email)
+            <br />
+
+
+
+
+
+
+                     
+                     
+                     @Html.HiddenFor(m => m.type)
+            <br />
+                     @Html.HiddenFor(m => m.type)
+            <br />
+
+
+
+                     
+                   
+            <br />
+                     @Html.HiddenFor(m => m.Password)
+                     
+                     @Html.HiddenFor(m => m.Id)
+                     @Html.HiddenFor(m => m.FileName)
+            <br />
+            <input type="submit" value="Update" />
+
+
+
+                     
+                }
+            
+</pre>
+        </div>
+    </div>
+    </body>

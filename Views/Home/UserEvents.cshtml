@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "UserEvents";
+}
+
+@using final.Models;
+
+<body class="event container" style="font-family: Narkisim;">
+    
+    <div style="padding-top:20px ;">
+        <table cellpadding="20" cellspacing="20" class="table">
+            <thead>
+                <tr class="text-center ">
+                    <td>
+                        <h2><label class="pull-center"> Up COMMING EVENTX </label></h2>
+                    </td>
+
+                </tr>
+            </thead>
+
+            <tbody class="thumbnail">
+                <tr>
+
+                    @foreach (Event u in Model)
+                    {
+                    <tr>
+                        <td width="1000 style=" padding-left:50px">
+                            <form action="/home/GoingSelected">
+
+                                <input name="Id" value="@u.Id" type="text" style="visibility:hidden" />
+                                <input name="Cid" value="@u.Cid" type="text" style="visibility:hidden" />
+                                <input name="Nid" value="@u.Nid" type="text" style="visibility:hidden" />
+                                <input name="Nname" value="@u.Nname" type="text" style="visibility:hidden" />
+                                <input name="Description" value="@u.Description" type="text" style="visibility:hidden" />
+                                <input name="Datte" value="@u.Datte" type="text" style="visibility:hidden" />
+                                <input name="Going" value="@u.Going" type="text" style="visibility:hidden" />
+                                <h5 style="color:#0094ff"> NGO NAME: @u.Nname</h5>
+                                <h5 style="color:#c49696">DESCRIPTION</h5>
+                                <p style="color:#134219">@u.Description</p>
+                                <h5 style="color:#c49696">CAMPAINS DATE:@u.Datte</h5>
+
+
+                                <div class="form-group">
+
+                                    <br />
+                                    @if (u.Going == 1)
+                                    {
+                                        <input name="Going" value="going" type="submit" style="background-color:#204864" />
+                                    }
+
+                                    @if (u.Going == 0)
+                                    {
+                                        <input name="Going" value="going" type="submit" style="background-color:#ffffff" />
+                                    }
+
+                                </div>
+                            </form>
+                        </td>
+                        @for (int i = 0; i < 2; i++)
+                        {
+                            string s = u.Id + "_" + i.ToString() + ".jpg";
+                            <td class="pull_right" style="padding-top:50px">
+                                <img src="~/Files/@s " width="100" height="120" />
+                            </td>
+                        }
+
+                    </tr>
+                    }
+
+
+
+                </tbody>
+            </table>
+
+
+        </div>
+
+    </body>
+

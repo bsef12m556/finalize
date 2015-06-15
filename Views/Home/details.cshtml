@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "details";
+}
+
+@using final.Models;
+<body class="loc container">
+    <div style="padding-right:200px ; padding-left:200px">
+        <table class="table table-striped">
+            <thead style="font-size:20px">
+                <tr>
+                    <td>
+                        <h1>NAME</h1>
+                    </td>
+                    <td>
+                        <h1>LOCATION</h1>
+                    </td>
+                    <td>
+                        <h1>DESCRIPTION</h1>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Person p in Model)
+                {
+                     <tr>
+                        <td>
+                         Name: @p.Name
+                        </td>
+                         <td>
+                          Location: @p.Area, @p.City, @p.Country
+                        </td>
+                        <td>
+                           Description: @p.Description
+                         </td>
+                     </tr>
+
+                }
+                
+
+            </tbody>
+        </table>
+
+    </div>
+    
+
+</body>

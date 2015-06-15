@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "tabels";
+}
+
+@{
+    Layout = "~/Views/Shared/View1.cshtml";
+}
+
+@using final.Models;
+
+<body style=" background-color:#ffffff ; color:black">
+    <h2>USER TABEL</h2>
+    <div style="padding-top:50px">
+        <div>
+            <table class="tabel tabel-bordered tabel-striped" border="1">
+                <thead style="color:#0094ff">
+                    <tr>
+                        <td style ="width:100px">
+                            ID
+                            </td>
+                            <td style="width:100px">
+                                Name
+                            </td>
+                            <td>
+                                Description
+                            </td>
+                            <td style="width:100px">
+                                Email
+                            </td>
+                            <td style="width:100px">
+                                Type
+                            </td>
+                             <td style="width:100px">
+                                State
+                             </td>
+                            <td style="width:100px">
+                                Edit
+                            </td>
+                            <td style="width:100px">
+                                Delete
+                            </td>
+</tr>
+                </thead>
+                <tbody>
+                    @foreach (user c in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => c.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.type)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.Block)
+                            </td>
+                            <td style="background-color:#ffffff">
+                                @Html.ActionLink("edit", "edituser", new { c.Id })
+                            </td>
+                            
+                            <td style="background-color:#ffffff">
+                                @Html.ActionLink("change State", "BlockUser", new { c.Id })
+                            </td>
+                        </tr>
+
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</body>
+
+

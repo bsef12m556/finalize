@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Eventss";
+}
+@using final.Models;
+
+<body class="event container" style="font-family: Narkisim;">
+    <h1 style="color: #ad9821; padding-top: 70px; padding-left: 200px; padding-right: 200px; font-size: 30px; ">Select a Category</h1>
+    <div style=" padding-left: 200px; padding-right: 200px; width:900px ">
+        <div class="locate" style="height:200px">
+            <form action="/home/EventSelected">
+                <div class=" form-group" style=" width:400px; color:#c7b631; padding-left:50px ; padding-top:40px">
+
+                    <h5>
+                        <label for="Categoryid">Select Category</label>
+                        <select name="Cid" required class=" form-control" id="categoryselector">
+                            @foreach (Category c in Model)
+                            {
+                                <option value="@c.Id">@c.Category1</option>
+                            }
+                        </select>
+                        <br />
+                        <input type="submit" class="btn btn-primary btn-lg  text-center pull-right" value="Search" id="b1" />
+                    </h5>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    
+</body>

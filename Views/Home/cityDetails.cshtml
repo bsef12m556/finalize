@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "cityDetails";
+}
+
+@{
+    Layout= null;
+}
+
+@using final.Models;
+
+
+
+<form action="/home/details">
+    <select name="Country" id="Count" class="form-control" required>
+
+        @foreach (Person p in Model)
+        {
+            <option value="@p.Country">@p.Country</option>
+            break;
+        }
+
+    </select>
+
+    <select name="City" id="Cit" class="form-control">
+        @foreach (Person p in Model)
+        {
+            <option value="@p.City">@p.City</option>
+        }
+    </select>
+
+
+
+    <h4 style="color:#86430a">AREA</h4>
+    <h5>
+        <select class="form-control" name="Area" id="Areaa">
+            @foreach (Person p in Model)
+            {
+
+                <option value="@p.Area">@p.Area</option>
+
+            }
+
+        </select>
+    </h5>
+
+    <h2 id="sel3"><input type="submit" value="Search" class="btn btn-primary btn-lg btn-block"></h2>  
+
+</form>
+ 
+
+<script>
+    $('document').ready(function () {
+        $('#Count').hide()
+        $('#Cit').hide()
+    });
+</script>   

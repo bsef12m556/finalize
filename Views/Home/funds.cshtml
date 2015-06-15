@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "funds";
+}
+
+@using final.Models;
+
+
+
+            <body class="fundsbackground container">
+
+
+                <div style="padding-top:100px;">
+                </div>
+
+
+
+                <div>
+                    <table cellpadding="20" cellspacing="20" class="table"  >
+                        <thead>
+                            <tr class="text-center ">
+                                <td>
+                                    <h2><label class="pull-center"> Registered ngos </label></h2>
+                                </td>
+
+                            </tr>
+                        </thead>
+
+                        <tbody class="thumbnail" style="background-color:black;">
+
+                                @foreach (user u in Model)
+                    {
+                         <tr style="padding-top: 50px ;padding-left: 50px; padding-top: 50px">
+                                    <td width="500" height="350" style="padding-left: 50px; padding-top: 50px" >
+                                        <div>
+                                            <img src="~/Files/@u.FileName" width="300" height="250" />
+                                        </div>
+                                        </td>
+
+                                         <td width="550"  height="350">
+
+                                             <form action="/home/addfundtotabel">
+
+                                                 <input name="nid" value="@u.Id" type="text" style="visibility:hidden" />
+                                                 <h5 style="color:#0094ff">NAME:@u.name</h5>
+                                                 <h5 style="color:#c49696">DESCRIPTION</h5>
+                                                 <p>@u.Description</p>
+
+                                                 <div class="form-group">
+                                                     <h6>
+                                                         <br />
+                                                         <label style="color: #857d7d" for="ammount">Ammount</label>
+                                                         <input type="number" min="1" maxlength="5" class="form-control" name="Ammount" placeholder="Enter Ammount" required>
+                                                     </h6>
+
+                                                 </div>
+                                                 <div class="form-group">
+
+                                                     <h6>
+                                                         <label style="color: #857d7d" for=" card">card#</label>
+                                                         <input type="number" min="1" maxlength="7" style=" letter-spacing:1px" class="form-control" name="card" placeholder="Enter Debit Card #" required>
+                                                     </h6>
+                                                 </div>
+
+                                                 <input type="submit" value="DONATE" id="b1" />
+                                             </form>
+                                         </td>
+                                    </tr>
+                    }
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+
+      @Scripts.Render("~/bundles/jquery")
+                <script>
+
+                    $(document).ready(function () {
+
+                        $('#b1').click(function () {
+                            $.getJSON("/Home/addfundtotabel1",function (data) {
+
+                                if (data=="login")
+                                   {
+                                    alert('LOGIN IN FIRST');
+                                   }
+                                if(data=="NGO")
+                                    {
+                                    alert('NGO CAN NOT DONATE');
+                                     }
+                         });
+
+                                                         });
+
+                                                         });
+    </script>
+
+
+    
+</body>
+

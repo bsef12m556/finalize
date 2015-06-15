@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "EventInsertion";
+}
+@using final.Models;
+
+
+<body class="event container" style="font-family: Narkisim;">
+    <h1 style="color: #721665; padding-top: 70px; padding-left: 200px; padding-right: 200px; font-size: 30px; ">Event</h1>
+    <div style=" padding-left: 200px; padding-right: 200px; width:900px ">
+        <div class="locate">
+            <form action="/ngo/EventSave" style=" width:400px; color:#c7b631; padding-left:50px ; padding-top:40px" method="post" enctype="multipart/form-data">
+
+                <div class=" form-group">
+
+                    <h5>
+                        <label for="Categoryid">Select Category</label>
+                        <select name="Cid" required class=" form-control">
+                            @foreach (Category c in Model)
+                            {
+                                <option value="@c.Id">@c.Category1</option>
+                            }
+                        </select>
+                    </h5>
+                </div>
+
+                <div class="form-group">
+
+                    <h5>
+                        <label for="description">Description</label>
+                        <input type="text" style="height :100px;" class="form-control" name="Description" placeholder="description" required>
+                    </h5>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <h5>
+                        <label for="Date">Date</label>
+                        <input type="date" class="form-control" name="Date" placeholder="Enter Date" required>
+                    </h5>
+                </div>
+
+                <div class="form-group">
+                    <h6>
+                        <label for="File">Upload picture</label>
+                        <input type="file" name="image" required multiple>
+                    </h6>
+
+                    <p class="help-block"> picture to be upload.</p>
+
+                </div>
+
+                <input type="submit" class="btn btn-primary btn-lg  text-center" value="SUBMIT" />
+                <div style="padding-bottom:40px">
+
+                </div>
+
+
+            </form>
+        </div>
+
+    </div>
+</body>

@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "editneedy";
+}
+@{
+    Layout = "~/Views/Shared/View1.cshtml";
+}
+@model final.Models.Person
+<!DOCTYPE html>
+<body class="container">
+    <div id="page-wrapper">
+        <div style="font-family:Narkisim; background-color:#232222">
+            <h2 style="color:#4e0505">editneedy</h2>
+            @using (Html.BeginForm("nedit", "admin", FormMethod.Post))
+            {
+
+                @Html.LabelFor(m => m.Name)
+                <br />
+                @Html.EditorFor(m => m.Name)
+                <br />
+
+                @Html.LabelFor(m => m.Description)
+                <br />
+                @Html.EditorFor(m => m.Description)
+                <br />
+
+                @Html.LabelFor(m => m.Area)
+                <br />
+                @Html.EditorFor(m => m.Area)
+                <br />
+
+                @Html.LabelFor(m => m.City)
+                <br />
+                @Html.EditorFor(m => m.City)
+                <br />
+
+                @Html.LabelFor(m => m.Country)
+                <br />
+                @Html.EditorFor(m => m.Country)
+                <br />
+
+                @Html.HiddenFor(m => m.Id)
+                <br />
+                @Html.HiddenFor(m => m.Doner_id)
+                <br />
+
+                <input type="submit" value="Update" />
+
+
+            }
+
+
+        </div>
+    </div>
+</body>

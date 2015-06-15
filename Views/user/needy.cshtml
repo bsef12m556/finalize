@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "needy";
+}
+
+<body class="fundsbackground container">
+    <div style="padding-top: 50px; padding-left: 200px; padding-right: 200px; color: #b66d13">
+        <h3 style=" font-family:Castellar">Person's Description</h3>
+        </div>
+        <div style="padding-top: 50px; padding-left: 200px; padding-right: 200px; ">
+            <div class="locate">
+                <form action="/user/addneedy" style="width: 500px; padding-left: 100px; color: #c13636">
+                    
+
+                    <div class=" form-group" style="padding-top: 50px;">
+
+                        <h4>
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" name="name" placeholder="Enter Name">
+                        </h4>
+
+                    </div>
+                    <div class="form-group">
+                        <h4>
+
+                            <label for="country"> Country</label>
+                            <input type="text" class="form-control" name="country" placeholder="Enter country" >
+
+                        </h4>
+
+                    </div>
+                    <div class="form-group">
+
+                        <h4>
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" name="city" placeholder="Enter City">
+                        </h4>
+
+                    </div>
+                    <div class="form-group">
+
+                        <h4>
+                            <label for="area">Area</label>
+                            <input type="text" class="form-control" name="area" placeholder="Enter Area" required>
+                        </h4>
+
+                    </div>
+                    <div class="form-group">
+
+                        <h4>
+                            <label for="description">Description</label>
+                            <input type="text" style=" height :100px;" class="form-control" name="description" placeholder="description" required>
+                        </h4>
+
+                    </div>
+
+                    <input type="submit" class="btn btn-primary btn-lg  text-center" value="Done" />
+
+                </form>
+            </div>
+        </div>
+</body>
+

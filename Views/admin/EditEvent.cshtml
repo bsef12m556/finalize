@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "EditEvent";
+}
+
+@{
+    Layout = "~/Views/Shared/View1.cshtml";
+}
+
+@model final.Models.Event
+<body class="container">
+    <h2>Edit Event</h2>
+
+
+            <div style="font-family:Narkisim">
+                <h2>editneedy</h2>
+                 @using (Html.BeginForm("UpdateEvent", "admin", FormMethod.Post))
+                {
+    
+                      @Html.HiddenFor(m => m.Going)
+              
+                     @Html.HiddenFor(m => m.Nname)
+                <br />
+
+                     
+                      @Html.HiddenFor(m => m.Id)
+                     @Html.LabelFor(m=>m.Description)
+                <br />
+                     @Html.EditorFor(m => m.Description)
+                <br />
+                      @Html.HiddenFor(m => m.Cid)
+                     
+                     @Html.LabelFor(m => m.Datte)
+                <br />
+                     @Html.EditorFor(m => m.Datte)
+                <br />
+
+
+                <br />
+                       
+                     @Html.HiddenFor(m => m.Nid)
+                <br />
+                <input type="submit" value="Update" />
+
+                     
+                }
+            
+
+            </div>
+
+</body>

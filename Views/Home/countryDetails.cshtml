@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "countryDetails";
+}
+@{
+    Layout = null;
+}
+
+@using final.Models;
+
+<select name="Country" id="Countryy" class="form-control" required>
+
+    @foreach (Person p in Model)
+    {
+        <option value="@p.Country">@p.Country</option>
+        break;
+    }
+
+</select>
+
+                       <div>
+                           <h4 style="color:#86430a">CITY</h4>
+                            <h5>
+                                <select name="Cityy" id="Cityy" class="form-control">
+                                    @foreach (Person p in Model)
+                                    {
+                                        <option value="@p.City">@p.City</option>
+                                    }
+                                </select>
+                            </h5>
+                       </div>
+
+                        <div id="Area"> </div>
+
+        <h2 id="sel2"><input type="submit" value="Search" class="btn btn-primary btn-lg btn-block"></h2>
+   
+
+<script>
+    $('document').ready(function () {
+        $('#Countryy').hide()
+    });
+
+    $('#sel2').click(function () {
+        var value = $('#Country').val()
+        var value2 = $('#Cityy').val()
+        var values = value + "," + value2
+        $('#Area').load('/Home/cityDetails?Country=' + values);
+        $('#sel2').hide() 
+    });
+</script>

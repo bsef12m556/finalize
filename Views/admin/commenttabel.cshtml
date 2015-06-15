@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "commenttabel";
+}
+
+@{
+    Layout = "~/Views/Shared/View1.cshtml";
+}
+
+
+@using final.Models;
+ <body style=" background-color:#ffffff ; color:black">
+    <h2 >COMMENT TABEL</h2>
+    <div style="padding-top:50px">
+        <table class="tabel tabel-bordered tabel-striped" style="padding-top:50px" border="1">
+            
+            <thead style="color:#0026ff; padding-top:50px">
+                <tr>
+                    <td style="width:100px">
+                        
+                        ID
+                    </td>
+                    <td style ="width:100px">
+                        Name
+                        </td>
+
+                    <td style="width:100px">
+                        Email
+                    </td>
+
+                    <td style="width:100px">
+                        Subject
+                    </td>
+                        <td>
+                            Comment
+                        </td>
+</tr>
+            </thead>
+            <tbody>
+                @foreach (Comment c in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => c.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => c.Name)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(m => c.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => c.Subject)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => c.Comment1)
+                        </td>
+
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+
+

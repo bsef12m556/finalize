@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Goingtabel";
+}
+
+
+@{
+    Layout = "~/Views/Shared/View1.cshtml";
+}
+@using final.Models;
+<body style="background-color:#ffffff ; color:black">
+    <h2>Going tabel</h2>
+    <div>
+        <div style="padding-top:50px">
+            <table class="tabel tabel-bordered tabel-striped" border="1">
+                <thead style="color:#0026ff">
+                    <tr>
+                        <td style="width:100px">
+                            ID
+                        </td>
+                        <td style="width:100px">
+                            Event Name
+                        </td>
+                        <td style="width:100px">
+                            User Name
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Gone c in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => c.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.Event.Nname)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.user.name)
+                            </td>
+                        </tr>
+
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</body>

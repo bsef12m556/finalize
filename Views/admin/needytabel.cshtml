@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "needytabel";
+}
+
+@{
+    Layout = "~/Views/Shared/View1.cshtml";
+}
+
+@using final.Models;
+<body style="background-color:#ffffff ; color:black">
+    <h2> NEEDY TABEL</h2>
+    <div>
+        <div style=" padding-top:50px">
+            <table class="tabel tabel-bordered tabel-striped" border="1">
+                <thead style="color:#0026ff">
+                    <tr>
+                        <td style="width:100px">
+                            ID
+                        </td>
+                        <td style="width:100px">
+                            Name
+                        </td>
+                        <td>
+                            Description
+                        </td>
+                        <td>
+                            Area
+                        </td>
+                        <td style="width:100px">
+                            City
+                        </td>
+                        <td style="width:100px">
+                            Country
+                        </td>
+                        <td style="width:100px">
+                            Edit
+                        </td>
+                        <td style="width:100px">
+                            Delete
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Person c in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => c.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.Area)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.City)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.Country)
+                            </td>
+                            <td style="background-color:white">
+                                @Html.ActionLink("Edit", "editneedy", new { c.Id })
+                            </td>
+                            <td style="background-color:white">
+                                @Html.ActionLink("Delete", "delneedy", new { c.Id })
+                            </td>
+                        </tr>
+
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>

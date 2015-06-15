@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "signup";
+}
+
+@model final.Models.user
+
+<body class="signupp container" style="font-family: Narkisim;">
+    <h1 style="color: #721665; padding-top: 70px; padding-left: 200px; padding-right: 200px; font-size: 30px; ">SIGN UP</h1>
+    <div style=" padding-left: 200px; padding-right: 200px; width:900px ">
+        <div style="background-color:black" >
+
+           
+            <form action="/Home/adduser" style=" width:400px; color:#c7b631; padding-left:50px ; padding-top:40px" method="post" enctype="multipart/form-data">
+
+                <div class=" form-group">
+
+                    <h5>
+                        <label for="name">Name</label>
+                        <input type="text" style="color:black" class=" form-control" name="name" placeholder="Enter Name" required>
+                    </h5>
+
+                </div>
+                <div class="form-group">
+                    <h5>
+
+                        <label for="Email">Email address</label>
+                        <input style="color:black" type="email" class="form-control" id="Email" name="Email" placeholder="Enter email" required>
+                        
+
+                    </h5>
+                    <div id="result" style="font-style:italic ;color:black">
+
+                    </div>
+
+                </div>
+                <div class="form-group">
+
+                    <h5>
+                        <label for="Password">Password</label>
+                        <input type="password" class="form-control" name="Password" style="color:black " placeholder=" password" required>
+                    </h5>
+
+                </div>
+                <div class="form-group">
+
+                    <h5>
+                        <label for="description">Description</label>
+                        <textarea style="height :100px; color:black" class="form-control" name="Description" required placeholder="description"></textarea>
+                   </h5>
+
+                </div>
+
+                <div class="form-group">
+                    <h5>
+                        <label for="usertype">User</label>
+                        <select name="type" required class=" form-control">
+                            <option value="NGO">NGO</option>
+                            <option value="USER">USER</option>
+                        </select>
+                    </h5>
+                </div>
+                <div class="form-group">
+                    <h6>
+                        <label for="File">Upload picture</label>
+                        <input type="file" name="image" required>
+                    </h6>
+
+                    <p class="help-block"> picture to be upload.</p>
+
+                </div>
+
+                <input type="submit" id="b1" class="btn btn-primary btn-lg  text-center" value="SUBMIT" />
+                <div style="padding-bottom:40px">
+
+                </div>
+
+
+            </form>
+        </div>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $(document).ready(function () {
+
+            $('#b1').click(function () {
+                var Email = $('#Email').val();
+                
+                $.getJSON("/home/CheckEmail?Email=" + Email, function (data) {
+                    
+                    if (data) {
+                        $('#result').text("Email already exists in database");
+                        alert( Email+ 'Email already exists in database');
+
+                    }
+                    else {
+                        $('#result').text("Email is available");
+                    }
+                });
+
+            });
+
+        });
+    </script>
+
+
+
+</body>

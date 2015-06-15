@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Eventtabel";
+}
+@{
+    Layout = "~/Views/Shared/View1.cshtml";
+}
+
+@using final.Models;
+
+<body style="background-color:#ffffff ; color:black">
+    <h2 >Event tabel</h2>
+
+    <div>
+        <div style="padding-top:50px">
+            <table class="tabel tabel-bordered tabel-striped" border="1">
+                <thead style="color:#0094ff">
+                    <tr>
+                        <td style ="width:100px">
+                            ID
+                            </td>
+                        <td style="width:100px">
+                            Category
+                        </td>
+                        <td style="width:100px">
+                            NGO
+                        </td>
+                        <td style="width:100px">
+                            NAME
+                        </td>
+                            <td>
+                                DESCRIPTION
+                            </td>
+                        <td style="width:100px">
+                            Date
+                        </td>
+                        <td style="width:100px">
+                            Going
+                        </td>
+                            <td style="width:100px">
+                                Edit
+                            </td>
+                            <td style="width:100px">
+                                Delete
+                            </td>
+</tr>
+                </thead>
+                <tbody>
+                    @foreach (Event c in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => c.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.Category.Category1)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.Nid)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.Nname)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.Datte)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => c.Going)
+                            </td>
+
+                            <td style="color:white">
+                                @Html.ActionLink("Edit", "EditEvent", new { c.Id })
+                            </td>
+                            <td style="color:white">
+                                @Html.ActionLink("Delete", "DelEvent", new { c.Id })
+                            </td>
+                        </tr>
+
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "EditCategory";
+}
+
+@{
+    Layout = "~/Views/Shared/View1.cshtml";
+}
+
+@model final.Models.Category
+<body class="container">
+    <div style="font-family:Narkisim">
+        <h2>EditCategory</h2>
+
+        @using (Html.BeginForm("UpdateCategory", "admin", FormMethod.Post))
+        {
+
+            @Html.HiddenFor(m => m.Id)
+
+           
+
+            @Html.LabelFor(m => m.Category1)
+            <br />
+            @Html.EditorFor(m => m.Category1)
+            <br />
+            
+            <input type="submit" value="Update" />
+
+        }
+
+
+    </div>
+
+</body>
